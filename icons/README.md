@@ -1,32 +1,47 @@
-# PWA Icons
+# PWA Icons / App-Symbole
 
-Bu klasörde PWA için gerekli iconlar bulunmalıdır.
+Dieses Verzeichnis enthält die App-Icons für die PWA (Progressive Web App).
 
-## Gerekli Icon Boyutları:
+## Status
 
-- icon-72x72.png
-- icon-96x96.png
-- icon-128x128.png
-- icon-144x144.png
-- icon-152x152.png
-- icon-192x192.png
-- icon-384x384.png
-- icon-512x512.png
+✅ **Platzhalter-Icons erstellt** - Basis-PNGs für alle Größen vorhanden
+✅ **SVG-Quelle vorhanden** - `icon.svg` mit Abakus-Design
+⚠️ **Aktion erforderlich**: Für Produktion sollten die PNGs aus dem SVG generiert werden
 
-## Icon Oluşturma:
+## Icon-Dateien
 
-1. Ücretsiz online araçlar:
-   - https://realfavicongenerator.net/
-   - https://www.favicon-generator.org/
-   - https://favicon.io/
+- `icon.svg` - Quell-Vektor-Icon (Abakus-Design mit Gradient)
+- `icon-*.png` - PNG-Icons in verschiedenen Größen (derzeit Platzhalter)
 
-2. Logo/Icon tasarımı:
-   - 🧮 Abakus sembolü kullanın
-   - Ana renkler: #667eea, #764ba2, #f093fb
-   - Basit ve tanınabilir bir design
+## Benötigte Icon-Größen
 
-3. Tüm boyutlarda icon oluşturduktan sonra bu klasöre koyun.
+Alle erforderlichen Größen für optimale PWA-Unterstützung:
+- 72x72, 96x96, 128x128, 144x144, 152x152, 192x192, 384x384, 512x512
 
-## Geçici Çözüm:
+## Produktions-Icons generieren
 
-Şu an için icons olmadan da app çalışır. Browser varsayılan favicon kullanacaktır.
+### Option 1: Online-Tools (Einfachste Methode)
+1. Gehe zu [RealFaviconGenerator](https://realfavicongenerator.net/)
+2. Lade `icon.svg` hoch
+3. Lade das generierte Paket herunter
+4. Ersetze die PNG-Dateien in diesem Verzeichnis
+
+### Option 2: Mit ImageMagick (falls installiert)
+```bash
+cd icons
+for size in 72 96 128 144 152 192 384 512; do
+  convert icon.svg -resize ${size}x${size} icon-${size}x${size}.png
+done
+```
+
+### Option 3: Mit Inkscape (falls installiert)
+```bash
+cd icons
+for size in 72 96 128 144 152 192 384 512; do
+  inkscape icon.svg -w $size -h $size -o icon-${size}x${size}.png
+done
+```
+
+## Hinweis
+
+Die Platzhalter-Icons ermöglichen der PWA zu funktionieren, sollten aber für ein professionelles Erscheinungsbild ersetzt werden.

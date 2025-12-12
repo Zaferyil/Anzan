@@ -1,0 +1,112 @@
+/* PWA Install Button Styles */
+.pwa-install-prompt {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(145deg, #667eea 0%, #764ba2 100%);
+    padding: 20px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    max-width: 90%;
+    width: 400px;
+    display: none;
+    animation: slideUp 0.5s ease-out;
+}
+
+.pwa-install-prompt.show {
+    display: block;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateX(-50%) translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+.pwa-install-content {
+    color: white;
+    text-align: center;
+}
+
+.pwa-install-icon {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.pwa-install-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.pwa-install-text {
+    font-size: 1em;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.pwa-install-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.pwa-install-button,
+.pwa-dismiss-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pwa-install-button {
+    background: linear-gradient(145deg, #4CAF50, #45a049);
+    color: white;
+}
+
+.pwa-install-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.pwa-dismiss-button {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.pwa-dismiss-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.pwa-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.pwa-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
