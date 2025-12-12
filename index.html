@@ -11,7 +11,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Anzan Meister">
-    
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
     <style>
         * {
             margin: 0;
@@ -9215,6 +9218,19 @@
             pwaPopup.classList.remove('show');
             localStorage.setItem('pwaInstallDismissed', 'true');
         });
+
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('✅ Service Worker registriert:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('❌ Service Worker Registrierung fehlgeschlagen:', error);
+                    });
+            });
+        }
     </script>
 </body>
 </html>
