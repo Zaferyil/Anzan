@@ -1,0 +1,19 @@
+{
+  "name": "anzan",
+  "version": "1.0.0",
+  "description": "**Mentale Arithmetik Trainings-App für Lehrer und Schüler**",
+  "main": "generate-icons.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:51894/git/Zaferyil/Anzan"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}
