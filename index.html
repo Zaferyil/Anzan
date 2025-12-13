@@ -2388,8 +2388,15 @@
         /* Responsive Grid Classes */
         .grid-2 {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 600px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
         }
 
         .grid-3 {
@@ -2732,6 +2739,71 @@
             #logikRatselPattern {
                 gap: 8px !important;
                 padding: 8px !important;
+            }
+        }
+
+        /* Responsive Settings Screens */
+        @media (max-width: 600px) {
+            #logikRatselSettingsScreen .option-card,
+            #sorobanMatheSettingsScreen .option-card {
+                padding: 15px 10px !important;
+            }
+
+            #logikRatselSettingsScreen .option-card .icon,
+            #sorobanMatheSettingsScreen .option-card .icon {
+                font-size: 2em !important;
+                margin-bottom: 6px !important;
+            }
+
+            #logikRatselSettingsScreen .option-card .label,
+            #sorobanMatheSettingsScreen .option-card .label {
+                font-size: 1em !important;
+            }
+
+            #logikRatselSettingsScreen .option-card .time,
+            #sorobanMatheSettingsScreen .option-card .time {
+                font-size: 0.8em !important;
+                margin-top: 4px !important;
+            }
+
+            #logikRatselSettingsScreen .settings-section,
+            #sorobanMatheSettingsScreen .settings-section {
+                padding: 12px !important;
+                margin-bottom: 12px !important;
+            }
+
+            #logikRatselSettingsScreen h2,
+            #sorobanMatheSettingsScreen h2 {
+                font-size: 1.1em !important;
+                margin-bottom: 12px !important;
+            }
+
+            #logikRatselSettingsScreen h3,
+            #sorobanMatheSettingsScreen h3 {
+                font-size: 1em !important;
+                margin-bottom: 10px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #logikRatselSettingsScreen .option-card,
+            #sorobanMatheSettingsScreen .option-card {
+                padding: 12px 8px !important;
+            }
+
+            #logikRatselSettingsScreen .option-card .icon,
+            #sorobanMatheSettingsScreen .option-card .icon {
+                font-size: 1.8em !important;
+            }
+
+            #logikRatselSettingsScreen .option-card .label,
+            #sorobanMatheSettingsScreen .option-card .label {
+                font-size: 0.95em !important;
+            }
+
+            #logikRatselSettingsScreen .settings-section,
+            #sorobanMatheSettingsScreen .settings-section {
+                padding: 10px !important;
             }
         }
 
