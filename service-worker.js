@@ -1,9 +1,10 @@
 // Service Worker for Anzan Meister PWA
-const CACHE_NAME = 'anzan-meister-v2.0.0';
+const CACHE_NAME = 'anzan-meister-v2.1.0';
 const urlsToCache = [
   './',
   './index.html',
-  './manifest.json'
+  './manifest.json',
+  './icons/icon.svg'
 ];
 
 // Install Service Worker
