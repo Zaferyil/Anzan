@@ -2601,6 +2601,51 @@
             }
         }
 
+        /* Responsive large font sizes */
+        .text-10em {
+            font-size: 3em;
+        }
+
+        @media (min-width: 480px) {
+            .text-10em {
+                font-size: 5em;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .text-10em {
+                font-size: 7em;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .text-10em {
+                font-size: 10em;
+            }
+        }
+
+        .text-5em {
+            font-size: 2em;
+        }
+
+        @media (min-width: 480px) {
+            .text-5em {
+                font-size: 3em;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .text-5em {
+                font-size: 4em;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .text-5em {
+                font-size: 5em;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -4225,7 +4270,7 @@
 
             <!-- End Message (hidden initially) -->
             <div id="farbSpielEndMessage" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10000; justify-content: center; align-items: center; flex-direction: column; gap: 30px;">
-                <h2 style="color: white; font-size: 5em; margin: 0;">🎉 FERTIG! 🎉</h2>
+                <h2 class="text-5em" style="color: white; margin: 0;">🎉 FERTIG! 🎉</h2>
                 <div class="button-group" style="flex-direction: row;">
                     <button class="restart-button" onclick="startFarbSpielGame()">🔄 Nochmal</button>
                     <button class="new-settings-button" onclick="showFarbSpielSettings()">⚙️ Neue Einstellungen</button>
@@ -4346,7 +4391,7 @@
                 <div id="sorobanMatheLeft" style="display: flex; justify-content: center;"></div>
                 
                 <!-- Operation Sign -->
-                <div id="sorobanMatheOperation" style="font-size: 10em; color: #FFD700; text-shadow: 4px 4px 8px rgba(0,0,0,0.4); font-weight: 900; font-family: Arial, sans-serif;">+</div>
+                <div id="sorobanMatheOperation" class="text-10em" style="color: #FFD700; text-shadow: 4px 4px 8px rgba(0,0,0,0.4); font-weight: 900; font-family: Arial, sans-serif;">+</div>
                 
                 <!-- Right Abacus -->
                 <div id="sorobanMatheRight" style="display: flex; justify-content: center;"></div>
@@ -5377,7 +5422,7 @@
             container.innerHTML = `
                 <div style="text-align: center;">
                     <h2 style="color: white; font-size: 2.5em; margin-bottom: 20px;">Bereit machen!</h2>
-                    <h1 style="color: #FFD700; font-size: 5em; margin: 30px 0;">Zähle: ${speedZahlenState.targetNumber}</h1>
+                    <h1 class="text-5em" style="color: #FFD700; margin: 30px 0;">Zähle: ${speedZahlenState.targetNumber}</h1>
                     <p style="color: rgba(255,255,255,0.8); font-size: 1.5em;">Die Zahlen erscheinen gleich...</p>
                 </div>
             `;
@@ -7395,7 +7440,7 @@
             const display = document.getElementById('anzanVisualDisplay');
             display.innerHTML = `
                 <div style="display: flex; align-items: center; justify-content: center; min-height: 300px;">
-                    <div style="font-size: 10em; font-weight: bold; color: #FFFFFF;">${number}</div>
+                    <div class="text-10em" style="font-weight: bold; color: #FFFFFF;">${number}</div>
                 </div>
             `;
         }
@@ -7548,7 +7593,7 @@
             gameScreen.innerHTML += `
                 <div id="anzanVisualCountdown" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999;">
                     <div id="anzanVisualCountdownCircle" style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(145deg, #4CAF50, #45a049); display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 40px rgba(76, 175, 80, 0.5); margin-bottom: 30px;">
-                        <span id="anzanVisualCountdownNumber" style="font-size: 5em; font-weight: bold; color: white;">3</span>
+                        <span id="anzanVisualCountdownNumber" class="text-5em" style="font-weight: bold; color: white;">3</span>
                     </div>
                     <div style="font-size: 2em; color: white; font-weight: bold;">Bereit machen!</div>
                 </div>
@@ -7802,7 +7847,7 @@
             gameScreen.innerHTML += `
                 <div id="anzanCountdown" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999;">
                     <div id="countdownCircle" style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(145deg, #4CAF50, #45a049); display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 40px rgba(76, 175, 80, 0.5); margin-bottom: 30px;">
-                        <span id="countdownNumber" style="font-size: 5em; font-weight: bold; color: white;">3</span>
+                        <span id="countdownNumber" class="text-5em" style="font-weight: bold; color: white;">3</span>
                     </div>
                     <div style="font-size: 2em; color: white; font-weight: bold;">Bereit machen!</div>
                 </div>
@@ -7995,7 +8040,7 @@
             const display = document.getElementById('sorobanDisplay');
             display.innerHTML = `
                 <div style="display: flex; align-items: center; justify-content: center; min-height: 300px;">
-                    <div style="font-size: 10em; font-weight: bold; color: #FFFFFF;">${number}</div>
+                    <div class="text-10em" style="font-weight: bold; color: #FFFFFF;">${number}</div>
                 </div>
             `;
         }
@@ -8972,7 +9017,7 @@
             // Update end message
             const endMsg = document.getElementById('farbSpielEndMessage');
             endMsg.innerHTML = `
-                <h2 style="color: white; font-size: 5em; margin: 0;">🎉 FERTIG! 🎉</h2>
+                <h2 class="text-5em" style="color: white; margin: 0;">🎉 FERTIG! 🎉</h2>
                 <div style="color: white; font-size: 3em; margin: 20px 0;">
                     ${farbSpielState.score} / ${farbSpielSettings.colorCount} richtig (${percentage}%)
                 </div>
