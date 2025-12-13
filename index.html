@@ -9410,10 +9410,21 @@
 
         // Show the install banner
         const showInstallBanner = () => {
+            console.log('🔍 Checking banner conditions:');
+            console.log('  - Banner element exists:', !!pwaInstallBanner);
+            console.log('  - Is installed:', isInstalled());
+            console.log('  - Is dismissed:', isDismissed());
+            console.log('  - Has deferredPrompt:', !!deferredPrompt);
+            console.log('  - Dismissed time:', localStorage.getItem('pwa-dismissed'));
+
             if (pwaInstallBanner && !isInstalled() && !isDismissed() && deferredPrompt) {
+                console.log('✅ All conditions met! Showing banner in 2 seconds...');
                 setTimeout(() => {
+                    console.log('📱 Adding show class to banner');
                     pwaInstallBanner.classList.add('show');
                 }, 2000); // Show after 2 seconds
+            } else {
+                console.log('❌ Conditions not met. Banner will not show.');
             }
         };
 
@@ -9510,6 +9521,21 @@
         } else {
             console.log('ℹ️ App läuft im Browser');
         }
+
+        // Debug function - accessible from console
+        window.testPWABanner = () => {
+            console.log('🧪 Testing PWA Banner (forced)...');
+            localStorage.removeItem('pwa-dismissed');
+            localStorage.removeItem('pwa-installed');
+            if (pwaInstallBanner) {
+                pwaInstallBanner.classList.add('show');
+                console.log('✅ Banner force-shown. To test install, use Chrome DevTools > Application > Manifest');
+            } else {
+                console.log('❌ Banner element not found');
+            }
+        };
+
+        console.log('💡 Tipp: Zum Testen, tippe in Console: testPWABanner()');
     </script>
 </body>
 </html>
