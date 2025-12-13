@@ -1879,111 +1879,6 @@
             }
         }
 
-        /* PWA INSTALL POPUP */
-        .pwa-install-popup {
-            position: fixed;
-            bottom: -300px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(145deg, #667eea 0%, #764ba2 100%);
-            padding: 20px 30px;
-            border-radius: 20px 20px 0 0;
-            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.3);
-            z-index: 99999;
-            transition: bottom 0.5s ease-out;
-            max-width: 500px;
-            width: 90%;
-        }
-
-        .pwa-install-popup.show {
-            bottom: 0;
-        }
-
-        .pwa-close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            font-size: 1.2em;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            line-height: 1;
-            font-weight: bold;
-        }
-
-        .pwa-close-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
-        }
-
-        .pwa-popup-content {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-            text-align: center;
-            padding-top: 10px;
-        }
-
-        .pwa-popup-icon {
-            font-size: 3em;
-        }
-
-        .pwa-popup-title {
-            color: white;
-            font-size: 1.3em;
-            font-weight: bold;
-        }
-
-        .pwa-popup-text {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1em;
-        }
-
-        .pwa-popup-buttons {
-            display: flex;
-            gap: 10px;
-            width: 100%;
-        }
-
-        .pwa-install-button, .pwa-dismiss-button {
-            flex: 1;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .pwa-install-button {
-            background: linear-gradient(145deg, #66BB6A 0%, #4CAF50 100%);
-            color: white;
-        }
-
-        .pwa-install-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
-        }
-
-        .pwa-dismiss-button {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-
-        .pwa-dismiss-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
         /* Modal/Popup Styles */
         .modal {
             display: none;
@@ -2646,19 +2541,180 @@
             }
         }
 
+        /* PWA Install Popup - New Design */
+        .pwa-install-banner {
+            position: fixed;
+            bottom: -400px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 100000;
+            transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: slideUp 0.4s ease-out;
+        }
+
+        .pwa-install-banner.show {
+            bottom: 0;
+        }
+
+        .pwa-banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .pwa-banner-icon {
+            font-size: 3em;
+            flex-shrink: 0;
+        }
+
+        .pwa-banner-text {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .pwa-banner-title {
+            color: white;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .pwa-banner-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95em;
+        }
+
+        .pwa-banner-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pwa-install-btn {
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .pwa-install-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .pwa-install-btn:active {
+            transform: translateY(0);
+        }
+
+        .pwa-dismiss-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pwa-dismiss-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .pwa-close-x {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        .pwa-close-x:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        @keyframes slideUp {
+            from {
+                bottom: -400px;
+                opacity: 0;
+            }
+            to {
+                bottom: 0;
+                opacity: 1;
+            }
+        }
+
+        /* Responsive PWA Banner */
+        @media (max-width: 768px) {
+            .pwa-banner-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .pwa-banner-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .pwa-install-btn, .pwa-dismiss-btn {
+                flex: 1;
+                min-width: 120px;
+            }
+
+            .pwa-banner-icon {
+                font-size: 2.5em;
+            }
+
+            .pwa-banner-title {
+                font-size: 1.1em;
+            }
+
+            .pwa-banner-description {
+                font-size: 0.9em;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <!-- PWA Install Popup -->
-    <div class="pwa-install-popup" id="pwaInstallPopup">
-        <button class="pwa-close-button" id="pwaCloseButton">×</button>
-        <div class="pwa-popup-content">
-            <div class="pwa-popup-icon">🧮📱</div>
-            <div class="pwa-popup-title">App installieren?</div>
-            <div class="pwa-popup-text">Installiere Anzan Meister auf deinem Gerät für schnellen Zugriff!</div>
-            <div class="pwa-popup-buttons">
-                <button class="pwa-install-button" id="pwaInstallButton">✓ Installieren</button>
-                <button class="pwa-dismiss-button" id="pwaDismissButton">Später</button>
+    <!-- PWA Install Banner -->
+    <div class="pwa-install-banner" id="pwaInstallBanner">
+        <button class="pwa-close-x" id="pwaCloseBtn" aria-label="Schließen">×</button>
+        <div class="pwa-banner-content">
+            <div class="pwa-banner-icon">🧮📱</div>
+            <div class="pwa-banner-text">
+                <div class="pwa-banner-title">Anzan Meister installieren?</div>
+                <div class="pwa-banner-description">Installiere die App für schnellen Zugriff und Offline-Nutzung!</div>
+            </div>
+            <div class="pwa-banner-buttons">
+                <button class="pwa-install-btn" id="pwaInstallBtn">✓ Installieren</button>
+                <button class="pwa-dismiss-btn" id="pwaDismissBtn">Später</button>
             </div>
         </div>
     </div>
@@ -9325,54 +9381,114 @@
             document.getElementById('userAnswer').textContent = '';
         }
 
-        // PWA Installation
-        let deferredPrompt;
-        const pwaPopup = document.getElementById('pwaInstallPopup');
-        const pwaInstallBtn = document.getElementById('pwaInstallButton');
-        const pwaDismissBtn = document.getElementById('pwaDismissButton');
-        const pwaCloseBtn = document.getElementById('pwaCloseButton');
+        // ========================================
+        // PWA INSTALLATION
+        // ========================================
 
-        // Check if already installed or dismissed
-        const pwaInstallDismissed = localStorage.getItem('pwaInstallDismissed');
-        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+        let deferredPrompt = null;
+        const pwaInstallBanner = document.getElementById('pwaInstallBanner');
+        const pwaInstallBtn = document.getElementById('pwaInstallBtn');
+        const pwaDismissBtn = document.getElementById('pwaDismissBtn');
+        const pwaCloseBtn = document.getElementById('pwaCloseBtn');
 
-        window.addEventListener('beforeinstallprompt', (e) => {
-            // Prevent the mini-infobar from appearing on mobile
-            e.preventDefault();
-            // Stash the event so it can be triggered later
-            deferredPrompt = e;
-            
-            // Show the install popup after 3 seconds if not dismissed
-            if (!pwaInstallDismissed && !isStandalone) {
+        // Check if app is already installed (standalone mode)
+        const isInstalled = () => {
+            return window.matchMedia('(display-mode: standalone)').matches ||
+                   window.navigator.standalone === true;
+        };
+
+        // Check if user dismissed the banner
+        const isDismissed = () => {
+            const dismissedTime = localStorage.getItem('pwa-dismissed');
+            if (!dismissedTime) return false;
+
+            // Show again after 7 days
+            const sevenDaysInMs = 7 * 24 * 60 * 60 * 1000;
+            const timeSinceDismissed = Date.now() - parseInt(dismissedTime);
+            return timeSinceDismissed < sevenDaysInMs;
+        };
+
+        // Show the install banner
+        const showInstallBanner = () => {
+            if (pwaInstallBanner && !isInstalled() && !isDismissed() && deferredPrompt) {
                 setTimeout(() => {
-                    pwaPopup.classList.add('show');
-                }, 3000);
+                    pwaInstallBanner.classList.add('show');
+                }, 2000); // Show after 2 seconds
             }
-        });
+        };
 
-        pwaInstallBtn.addEventListener('click', async () => {
-            if (!deferredPrompt) {
-                return;
+        // Hide the install banner
+        const hideInstallBanner = () => {
+            if (pwaInstallBanner) {
+                pwaInstallBanner.classList.remove('show');
             }
-            // Show the install prompt
-            deferredPrompt.prompt();
-            // Wait for the user to respond to the prompt
-            const { outcome } = await deferredPrompt.userChoice;
-            console.log(`User response: ${outcome}`);
-            // Clear the deferredPrompt
-            deferredPrompt = null;
-            // Hide the popup
-            pwaPopup.classList.remove('show');
+        };
+
+        // Capture the beforeinstallprompt event
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the default mini-infobar from appearing
+            e.preventDefault();
+
+            // Save the event for later use
+            deferredPrompt = e;
+
+            console.log('✅ PWA kann installiert werden');
+
+            // Show our custom install banner
+            showInstallBanner();
         });
 
-        pwaDismissBtn.addEventListener('click', () => {
-            pwaPopup.classList.remove('show');
-            localStorage.setItem('pwaInstallDismissed', 'true');
-        });
+        // Install button click handler
+        if (pwaInstallBtn) {
+            pwaInstallBtn.addEventListener('click', async () => {
+                if (!deferredPrompt) {
+                    console.log('❌ Kein Install-Prompt verfügbar');
+                    return;
+                }
 
-        pwaCloseBtn.addEventListener('click', () => {
-            pwaPopup.classList.remove('show');
-            localStorage.setItem('pwaInstallDismissed', 'true');
+                // Hide our banner
+                hideInstallBanner();
+
+                // Show the browser's install prompt
+                deferredPrompt.prompt();
+
+                // Wait for the user's response
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`PWA Installation ${outcome === 'accepted' ? 'akzeptiert' : 'abgelehnt'}`);
+
+                if (outcome === 'accepted') {
+                    // User accepted - mark as installed
+                    localStorage.setItem('pwa-installed', 'true');
+                }
+
+                // Clear the deferredPrompt
+                deferredPrompt = null;
+            });
+        }
+
+        // Dismiss button click handler
+        if (pwaDismissBtn) {
+            pwaDismissBtn.addEventListener('click', () => {
+                hideInstallBanner();
+                localStorage.setItem('pwa-dismissed', Date.now().toString());
+                console.log('PWA Installation später');
+            });
+        }
+
+        // Close button (X) click handler
+        if (pwaCloseBtn) {
+            pwaCloseBtn.addEventListener('click', () => {
+                hideInstallBanner();
+                localStorage.setItem('pwa-dismissed', Date.now().toString());
+                console.log('PWA Installation geschlossen');
+            });
+        }
+
+        // Listen for successful installation
+        window.addEventListener('appinstalled', (e) => {
+            console.log('✅ PWA erfolgreich installiert!');
+            localStorage.setItem('pwa-installed', 'true');
+            hideInstallBanner();
         });
 
         // Register Service Worker
@@ -9383,9 +9499,16 @@
                         console.log('✅ Service Worker registriert:', registration.scope);
                     })
                     .catch(error => {
-                        console.error('❌ Service Worker Registrierung fehlgeschlagen:', error);
+                        console.error('❌ Service Worker Fehler:', error);
                     });
             });
+        }
+
+        // Log install status on load
+        if (isInstalled()) {
+            console.log('✅ App läuft im Standalone-Modus (installiert)');
+        } else {
+            console.log('ℹ️ App läuft im Browser');
         }
     </script>
 </body>
