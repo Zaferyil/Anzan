@@ -1879,111 +1879,6 @@
             }
         }
 
-        /* PWA INSTALL POPUP */
-        .pwa-install-popup {
-            position: fixed;
-            bottom: -300px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(145deg, #667eea 0%, #764ba2 100%);
-            padding: 20px 30px;
-            border-radius: 20px 20px 0 0;
-            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.3);
-            z-index: 99999;
-            transition: bottom 0.5s ease-out;
-            max-width: 500px;
-            width: 90%;
-        }
-
-        .pwa-install-popup.show {
-            bottom: 0;
-        }
-
-        .pwa-close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            font-size: 1.2em;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            line-height: 1;
-            font-weight: bold;
-        }
-
-        .pwa-close-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
-        }
-
-        .pwa-popup-content {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-            text-align: center;
-            padding-top: 10px;
-        }
-
-        .pwa-popup-icon {
-            font-size: 3em;
-        }
-
-        .pwa-popup-title {
-            color: white;
-            font-size: 1.3em;
-            font-weight: bold;
-        }
-
-        .pwa-popup-text {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1em;
-        }
-
-        .pwa-popup-buttons {
-            display: flex;
-            gap: 10px;
-            width: 100%;
-        }
-
-        .pwa-install-button, .pwa-dismiss-button {
-            flex: 1;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .pwa-install-button {
-            background: linear-gradient(145deg, #66BB6A 0%, #4CAF50 100%);
-            color: white;
-        }
-
-        .pwa-install-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
-        }
-
-        .pwa-dismiss-button {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-
-        .pwa-dismiss-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
         /* Modal/Popup Styles */
         .modal {
             display: none;
@@ -2493,20 +2388,6 @@
     </style>
 </head>
 <body>
-    <!-- PWA Install Popup -->
-    <div class="pwa-install-popup" id="pwaInstallPopup">
-        <button class="pwa-close-button" id="pwaCloseButton">×</button>
-        <div class="pwa-popup-content">
-            <div class="pwa-popup-icon">🧮📱</div>
-            <div class="pwa-popup-title">App installieren?</div>
-            <div class="pwa-popup-text">Installiere Anzan Meister auf deinem Gerät für schnellen Zugriff!</div>
-            <div class="pwa-popup-buttons">
-                <button class="pwa-install-button" id="pwaInstallButton">✓ Installieren</button>
-                <button class="pwa-dismiss-button" id="pwaDismissButton">Später</button>
-            </div>
-        </div>
-    </div>
-
     <div class="container">
         <!-- Confetti Container -->
         <div class="confetti-container" id="confettiContainer"></div>
@@ -9168,56 +9049,6 @@
             document.getElementById('correctAnswer').textContent = `Erfolgsquote: ${percentage}%`;
             document.getElementById('userAnswer').textContent = '';
         }
-
-        // PWA Installation
-        let deferredPrompt;
-        const pwaPopup = document.getElementById('pwaInstallPopup');
-        const pwaInstallBtn = document.getElementById('pwaInstallButton');
-        const pwaDismissBtn = document.getElementById('pwaDismissButton');
-        const pwaCloseBtn = document.getElementById('pwaCloseButton');
-
-        // Check if already installed or dismissed
-        const pwaInstallDismissed = localStorage.getItem('pwaInstallDismissed');
-        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            // Prevent the mini-infobar from appearing on mobile
-            e.preventDefault();
-            // Stash the event so it can be triggered later
-            deferredPrompt = e;
-            
-            // Show the install popup after 3 seconds if not dismissed
-            if (!pwaInstallDismissed && !isStandalone) {
-                setTimeout(() => {
-                    pwaPopup.classList.add('show');
-                }, 3000);
-            }
-        });
-
-        pwaInstallBtn.addEventListener('click', async () => {
-            if (!deferredPrompt) {
-                return;
-            }
-            // Show the install prompt
-            deferredPrompt.prompt();
-            // Wait for the user to respond to the prompt
-            const { outcome } = await deferredPrompt.userChoice;
-            console.log(`User response: ${outcome}`);
-            // Clear the deferredPrompt
-            deferredPrompt = null;
-            // Hide the popup
-            pwaPopup.classList.remove('show');
-        });
-
-        pwaDismissBtn.addEventListener('click', () => {
-            pwaPopup.classList.remove('show');
-            localStorage.setItem('pwaInstallDismissed', 'true');
-        });
-
-        pwaCloseBtn.addEventListener('click', () => {
-            pwaPopup.classList.remove('show');
-            localStorage.setItem('pwaInstallDismissed', 'true');
-        });
 
         // Register Service Worker
         if ('serviceWorker' in navigator) {
